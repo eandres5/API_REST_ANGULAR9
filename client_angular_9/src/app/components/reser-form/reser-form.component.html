@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-4 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="title" [(ngModel)]="turista.title" placeholder="Titular Reservación" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="description" [(ngModel)]="turista.description" placeholder="Descripción Reservación" rows="2" class="form-control"></textarea>    
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="image" [(ngModel)]="turista.image" placeholder="Destino" class="form-control">
+                    </div>
+                    <button class="btn btn-success btn-block" (click)="edit ? updateRe() : saveNewReser()">
+                        Registrar
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4">
+        <div class="card-body text-center">
+            <h3>{{turista.id}}. {{turista.title == '' ? 'Titular de la reservacion' : turista.title}}</h3>
+            <img [src]="turista.image == '' ? '/assets/noimage.png' : turista.image" class="card-img-top">
+            <p>{{turista.description == '' ? 'Descripcion de la reservación' : turista.description}}</p>
+            <p>{{turista.created_at | date: 'yyyy-MM-dd'}}</p>
+        </div>
+    </div>
+</div>
